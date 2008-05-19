@@ -13,7 +13,7 @@ module MakeAbstract
         end
         
         def method_missing(method, *args, &block)
-          raise CannotMakeInstanceOfAbstractClassError if(method == :new)
+          raise CantInstantiateError if(method == :new)
           super(method, *args, &block)
         end
       end
@@ -21,5 +21,5 @@ module MakeAbstract
   end
 end
 
-class CannotMakeInstanceOfAbstractClassError < NoMethodError
+class CantInstantiateError < NoMethodError
 end

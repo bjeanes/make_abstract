@@ -20,13 +20,13 @@ class TestMakeAbstract < Test::Unit::TestCase
   end
   
   def test_instantiating_abstract_class_raises_error
-    assert_raise CannotMakeInstanceOfAbstractClassError do
+    assert_raise CantInstantiateError do
       AbstractClass.new
     end
   end
   
   def test_instantiating_abstract_child_class_raises_error
-    assert_raise CannotMakeInstanceOfAbstractClassError do
+    assert_raise CantInstantiateError do
       AbstractChildClass.new
     end
   end
