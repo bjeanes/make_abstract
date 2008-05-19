@@ -15,8 +15,8 @@ Usage:
     class ChildClass < AbstractClass
     end
     
-    AbstractClass.new         # will generate NoMethodError
-    AbstractChildClass.new    # will generate NoMethodError
+    AbstractClass.new         # will generate CantInstantiateError
+    AbstractChildClass.new    # will generate CantInstantiateError
     ChildClass.new            # will create new ChildClass object
     
 ## Gem
