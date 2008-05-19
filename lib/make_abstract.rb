@@ -11,7 +11,15 @@ module MakeAbstract
              def self.new(*args); super; end
           end
         end
+        
+        def method_missing(method, *args, &block)
+          raise CannotMakeInstanceOfAbstractClassError if(method == :new)
+          super(method, *args, &block)
+        end
       end
     end
   end
+end
+
+class CannotMakeInstanceOfAbstractClassError < NoMethodError
 end
