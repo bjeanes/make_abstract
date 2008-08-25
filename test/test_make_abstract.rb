@@ -2,14 +2,17 @@ require 'test/unit'
 require 'make_abstract'
 
 class AbstractClass
-  make_abstract
+  abstract
 end
 
 class ChildClass < AbstractClass
 end
 
 class AbstractChildClass < AbstractClass
-  make_abstract
+  abstract
+end
+
+class AbstractChildClassChild < AbstractChildClass
 end
 
 class TestMakeAbstract < Test::Unit::TestCase
@@ -40,6 +43,12 @@ class TestMakeAbstract < Test::Unit::TestCase
   def test_instantiating_child_of_abstract_class_doesnt_raise_error
     assert_nothing_raised do
       ChildClass.new
+    end
+  end
+  
+  def test_instantiating_child_of_second_level_abstract_class_doesnt_raise_error
+    assert_nothing_raised do
+      AbstractChildClassChild.new
     end
   end
 end

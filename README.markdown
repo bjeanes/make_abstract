@@ -5,11 +5,11 @@ Usage:
     require 'make_abstract'
     
     class AbstractClass
-      make_abstract
+      abstract
     end    
     
     class AbstractChildClass < AbstractClass
-      make_abstract
+      abstract
     end
     
     class ChildClass < AbstractClass
